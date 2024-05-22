@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import tagsIcon from '../assets/icon/tagsIcon.svg';
 import TrendingTagsSkeleton from './skeleton/TrendingTagsSkeleton';
+import { asyncGetAllTags } from '../redux/tags/action';
+import { asyncGetLeaderboards } from '../redux/leaderboards/action';
 
 function TrendingTags({ onTagFilterHandle, tagFilter }) {
   const { tags, loading } = useSelector((states) => states.tags);
@@ -10,6 +12,13 @@ function TrendingTags({ onTagFilterHandle, tagFilter }) {
     acc[tag.category] = tag;
     return acc;
   }, {}));
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(asyncGetAllTags());
+    dispatch(asyncGetLeaderboards());
+  }, []);
 
   return (
     loading ? <TrendingTagsSkeleton /> : (

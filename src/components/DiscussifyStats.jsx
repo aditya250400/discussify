@@ -1,17 +1,25 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import statsIcon from '../assets/icon/statsIcon.svg';
 import userIcon from '../assets/icon/userIcon.svg';
 import threadsIcon from '../assets/icon/threads.svg';
 import leaderboardsIcon from '../assets/icon/leaderboards.svg';
+import { asyncGetAllTags } from '../redux/tags/action';
+import { asyncGetLeaderboards } from '../redux/leaderboards/action';
 
 function DiscussifyStats({
   threads, users, leaderboards,
 }) {
+  const dispatch = useDispatch();
   const { loading } = useSelector((states) => states.users);
   const loadingThreads = useSelector((states) => states.threads.loading);
   const loadingLeaderboards = useSelector((states) => states.leaderboards.loading);
+
+  useEffect(() => {
+    dispatch(asyncGetAllTags());
+    dispatch(asyncGetLeaderboards());
+  }, []);
   return (
     <div className="bg-white rounded-xl">
       <div className="flex items-center gap-2 p-4">

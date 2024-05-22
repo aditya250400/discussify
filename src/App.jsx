@@ -13,10 +13,16 @@ import GuestRoute from './wrapper/GuestRoute';
 import ProtectedRoute from './wrapper/ProtectedRoute';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
+import { asyncGetAllTags } from './redux/tags/action';
+import { asyncGetLeaderboards } from './redux/leaderboards/action';
 
 function App() {
   const dispacth = useDispatch();
   const preload = useSelector((state) => state.preload);
+  useEffect(() => {
+    dispacth(asyncGetAllTags());
+    dispacth(asyncGetLeaderboards());
+  }, []);
   useEffect(() => {
     dispacth(asyncPreload());
   }, [dispacth]);
