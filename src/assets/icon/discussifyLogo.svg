@@ -1,0 +1,17 @@
+ <svg
+            width="48"
+            height="34"
+            viewBox="0 0 48 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="fill-current"
+          >
+            <path
+              d="M15.4992 0H36.5808L21.0816 22.9729H0L15.4992 0Z"
+              fill="#007AFF"
+            />
+            <path
+              d="M16.4224 25.102L10.4192 34H32.5008L48 11.0271H31.7024L22.2064 25.102H16.4224Z"
+              fill="#312ECB"
+            />
+          </svg>
