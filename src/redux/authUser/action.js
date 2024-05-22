@@ -3,6 +3,8 @@ import axios from 'axios';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import BASE_URL from '../../utils/api';
 import { getAllUsers } from '../users/action';
+import { asyncGetAllTags } from '../tags/action';
+import { asyncGetLeaderboards } from '../leaderboards/action';
 
 const ActionType = {
   USER_PROFILE: 'USER_PROFILE',
@@ -74,6 +76,8 @@ const asyncUserLogin = ({
     dispatch(userFetchSuccessActionCreator());
     dispatch(asyncGetMyProfile());
     dispatch(getAllUsers());
+    dispatch(asyncGetAllTags());
+    dispatch(asyncGetLeaderboards());
     message.success('Login Success');
     navigate('/');
   } catch (error) {
