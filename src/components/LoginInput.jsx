@@ -13,7 +13,16 @@ function LoginInput({
       <h1 className="text-center font-bold text-[20px] pt-[31px] pb-[10px]">Login To Your Account</h1>
       <form className="flex flex-col gap-3 justify-center items-center pb-[35px] mx-5 md:mx-[50px]">
         {/* Input email */}
-       
+        <div className="w-full flex items-center overflow-hidden border-2 border-[#374151] rounded-xl">
+          <label className="block px-2 cursor-pointer" htmlFor="email">
+            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.385 17.9375H6.335C3.62 17.9375 1.81 16.625 1.81 13.5625V7.4375C1.81 4.375 3.62 3.0625 6.335 3.0625H15.385C18.1 3.0625 19.91 4.375 19.91 7.4375V13.5625C19.91 16.625 18.1 17.9375 15.385 17.9375Z" stroke="#292D32" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M15.385 7.875L12.5524 10.0625C11.6202 10.78 10.0908 10.78 9.15862 10.0625L6.33502 7.875" stroke="#292D32" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+
+          </label>
+          <input type="email" className="w-full border-l-2 border-[#374151]  p-2 focus:outline-none " placeholder="Insert your email" id="email" autoComplete="off" name="email" value={values.email} onChange={handleChange} />
+        </div>
         {/* Input end */}
 
         {/* Input password */}
