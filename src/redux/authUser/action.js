@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import BASE_URL from '../../utils/api';
+import { getAllUsers } from '../users/action';
 
 const ActionType = {
   USER_PROFILE: 'USER_PROFILE',
@@ -72,6 +73,7 @@ const asyncUserLogin = ({
     dispatch(userProfileActionCreator(myProfileResponse.data.data.user));
     dispatch(userFetchSuccessActionCreator());
     dispatch(asyncGetMyProfile());
+    dispatch(getAllUsers());
     message.success('Login Success');
     navigate('/');
   } catch (error) {

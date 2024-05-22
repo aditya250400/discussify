@@ -17,8 +17,6 @@ import Loading from './components/Loading';
 function App() {
   const dispacth = useDispatch();
   const preload = useSelector((state) => state.preload);
-  console.log(preload);
-
   useEffect(() => {
     dispacth(asyncPreload());
   }, [dispacth]);
